@@ -150,7 +150,6 @@ public class Game {
      */
     public String checkGameWinner(char [][]grid){
         String result = "None";
-        int counter = 0;
         //Student code goes here ...
         if(!(grid[1][1] == '-')) {
             if ((grid[1][1] == grid[0][0] && grid[1][1] == grid[2][2]) || (grid[1][1] == grid[2][0] && grid[1][1] == grid[0][2])) {
@@ -158,6 +157,7 @@ public class Game {
             }
         }
         if(result.equals("None")){
+            int counter = 0;
             for (int i = 0; i < 3; i++) {
                 if ((grid[i][0] == grid[i][1] && grid[i][0] == grid[i][2]) && !(grid[i][0] == '-')) {
                     result = Character.toUpperCase(grid[i][0]) + " win";
@@ -165,9 +165,8 @@ public class Game {
                     result = Character.toUpperCase(grid[0][i]) + " win";
                 } else {
                     for (int j = 0; j < 3; j++) {
-                        if (!(grid[i][j] == '-')) {
+                        if (grid[i][j] == '-') {
                             counter += 1;
-                            break;
                         }
                     }
                 }
