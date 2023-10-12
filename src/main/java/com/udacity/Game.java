@@ -167,11 +167,12 @@ public class Game {
                     for (int j = 0; j < 3; j++) {
                         if (grid[i][j] == '-') {
                             counter += 1;
+                            break;
                         }
                     }
                 }
             }
-            if (counter == 0) {
+            if (counter == 0 && result.equals("None")) {
                 result = "Tie";
             }
         }
